@@ -1,0 +1,51 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# 补充内容
+*.import/
+export_presets.cfg
+export/
+exports/
+.import/
+windows/
+linux/
+macos/
+ios/
+web/
+editor_data/
+editor_settings.tres
+tmp/
+cache/
+addons/assetlib/
+logs/
+*.log
+
+# 二进制资源（不忽略源文件，但忽略导入数据）
+*.png.import
+*.jpg.import
+*.jpeg.import
+*.webp.import
+*.tga.import
+*.svg.import
+*.wav.import
+*.ogg.import
+*.mp3.import
+*.glb.import
+*.gltf.import
+*.obj.import
+*.fbx.import
+*.blend.import
+*.tscn.import
+*.tres.import
+*.res.import
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+
+# IDE 文件
+.vscode/
+.idea/
+*.swp
+*.swo

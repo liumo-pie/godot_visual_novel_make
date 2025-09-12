@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://i26k8oya0iv5"]
+
+[ext_resource type="Texture2D" uid="uid://qbctcwirirwx" path="res://assets/phoniex/phoneix_idel/frame_0_delay-3.5s.png" id="1_5wkh1"]
+[ext_resource type="Texture2D" uid="uid://bl086irfp2ac8" path="res://assets/phoniex/phoneix_idel/frame_1_delay-0.1s.png" id="2_mx6qs"]
+[ext_resource type="Texture2D" uid="uid://gyb5w2oes81s" path="res://assets/phoniex/phoneix_idel/frame_2_delay-0.2s.png" id="3_3q38e"]
+[ext_resource type="Texture2D" uid="uid://bt3wih6qfkq3s" path="res://assets/phoniex/phoneix_talking/frame_0_delay-0.2s.png" id="4_jkyds"]
+[ext_resource type="Texture2D" uid="uid://0su5lyfw1eew" path="res://assets/phoniex/phoneix_talking/frame_1_delay-0.2s.png" id="5_a5l31"]
+[ext_resource type="Texture2D" uid="uid://bpcxoqboxaxrs" path="res://assets/phoniex/phoneix_talking/frame_2_delay-0.2s.png" id="6_ibtkd"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.61,
+"texture": ExtResource("1_5wkh1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mx6qs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3q38e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mx6qs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_5wkh1")
+}],
+"loop": true,
+"name": &"idel",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_jkyds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a5l31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ibtkd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jkyds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a5l31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jkyds")
+}],
+"loop": true,
+"name": &"idel_talk",
+"speed": 5.0
+}]

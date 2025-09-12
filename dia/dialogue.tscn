@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxrqpenwwvbg0"]
+
+[ext_resource type="Theme" uid="uid://c6ejiicchxugd" path="res://themes/panel.tres" id="1_s7li5"]
+[ext_resource type="Script" uid="uid://bol1popdsy6dx" path="res://dia/dialogue.gd" id="2_k7ktf"]
+
+[node name="dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_s7li5")
+script = ExtResource("2_k7ktf")
+
+[node name="name" type="Control" parent="."]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -197.0
+offset_right = 200.0
+offset_bottom = -147.0
+grow_vertical = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="name"]
+color = Color(0.223529, 0.364706, 1, 0.505882)
+polygon = PackedVector2Array(180, 0, 0, 0, 0, 50, 200, 50)
+
+[node name="name_val" type="Label" parent="name"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -11.5
+offset_right = 22.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "name"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="content" type="RichTextLabel" parent="PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "hello.[wave]my[/wave]"
+
+[node name="Timer" type="Timer" parent="PanelContainer/content"]
+unique_name_in_owner = true
+wait_time = 0.1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(1062, 588)
+scale = Vector2(0.8, 0.8)
+polygon = PackedVector2Array(0, 0, 40, 20, 0, 40)
+
+[connection signal="timeout" from="PanelContainer/content/Timer" to="." method="_on_timer_timeout"]

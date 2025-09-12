@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dynppnqxut73b"]
+
+[ext_resource type="SpriteFrames" uid="uid://ulecy35jsui4" path="res://resources/trucy.tres" id="1_e7hj6"]
+[ext_resource type="Script" uid="uid://df234g3ndghp8" path="res://char/tord.gd" id="1_hyrgf"]
+
+[node name="character" type="Node2D"]
+script = ExtResource("1_hyrgf")
+
+[node name="anmi_char" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.8, 0.8)
+sprite_frames = ExtResource("1_e7hj6")
+animation = &"idel"
+autoplay = "idel"
