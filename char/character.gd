@@ -1,6 +1,5 @@
 class_name Character extends Node2D
 @onready var anmi_char: AnimatedSprite2D = %anmi_char
-const dia_res:Resource=preload("res://dialogue/main.dialogue")
 #使用插件实现功能，实例化
 const balloon_scene=preload("res://dialogue/balloon.tscn")
 const CHARACTER_FRAME:Dictionary={
@@ -37,10 +36,3 @@ func  anmi_play()->void:
 		#_:
 			#print("搞错了")
 	pass
-#func _unhandled_input(event: InputEvent) -> void:
-	#if event.is_action("ui_accept"):
-		#var balloon=balloon_scene.instantiate()
-		#get_parent().add_child(balloon)
-		#balloon.start(dia_res,"start")
-		##DialogueManager.show_example_dialogue_balloon(preload("res://dialogue/main.dialogue"),"start")
-	#pass

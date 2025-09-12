@@ -1,11 +1,13 @@
 extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
-
+const character=preload("res://char/character.tscn")
 ## The action to use for advancing the dialogue
 @export var next_action: StringName = &"ui_accept"
 
 ## The action to use to skip typing the dialogue
 @export var skip_action: StringName = &"ui_cancel"
+
+signal set_character(val:String)
 
 ## The dialogue resource
 var resource: DialogueResource
@@ -53,7 +55,6 @@ var mutation_cooldown: Timer = Timer.new()
 
 
 func _ready() -> void:
-	print_debug("进入插件的ready")
 	balloon.hide()
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 
@@ -82,8 +83,8 @@ func _notification(what: int) -> void:
 
 ## Start some dialogue
 func start(dialogue_resource: DialogueResource, title: String, extra_game_states: Array = []) -> void:
-	print("看看是不是有人骗我")
-	print_debug("真的进入start")
+	#print("看看是不是有人骗我")
+	#print_debug("真的进入start")
 	temporary_game_states = [self] + extra_game_states
 	is_waiting_for_input = false
 	resource = dialogue_resource
@@ -92,17 +93,15 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 
 ## Apply any changes to the balloon given a new [DialogueLine].
 func apply_dialogue_line() -> void:
-	print("进来了")
+	#按照角色显示
 	mutation_cooldown.stop()
-
 	is_waiting_for_input = false
 	balloon.focus_mode = Control.FOCUS_ALL
 	balloon.grab_focus()
- 
 	character_label.visible = not dialogue_line.character.is_empty()
-	print(character_label.text)
 	character_label.text = tr(dialogue_line.character, "dialogue")
-
+	print("角色名称是："+character_label.text)
+	set_character.emit(character_label.text)
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
 

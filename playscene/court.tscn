@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://pere3x61cxc3" path="res://playscene/court.gd" id="1_cvvjx"]
 [ext_resource type="Texture2D" uid="uid://bn28tugescu0b" path="res://assets/courtroomoverview.png" id="2_7v16n"]
-[ext_resource type="PackedScene" uid="uid://dynppnqxut73b" path="res://char/tord.tscn" id="3_2t1km"]
-[ext_resource type="PackedScene" uid="uid://dxrqpenwwvbg0" path="res://dia/dialogue.tscn" id="4_3uymb"]
+[ext_resource type="PackedScene" uid="uid://dynppnqxut73b" path="res://char/character.tscn" id="3_2t1km"]
+[ext_resource type="PackedScene" uid="uid://sbr0sup3nhnp" path="res://dialogue/balloon.tscn" id="4_cvvjx"]
 
 [node name="playscene" type="Node2D"]
 script = ExtResource("1_cvvjx")
@@ -36,5 +36,5 @@ grow_vertical = 0
 unique_name_in_owner = true
 position = Vector2(0, -302)
 
-[node name="dialogue" parent="CanvasLayer2" instance=ExtResource("4_3uymb")]
+[node name="ExampleBalloon" parent="CanvasLayer2" instance=ExtResource("4_cvvjx")]
 unique_name_in_owner = true
