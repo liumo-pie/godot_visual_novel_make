@@ -25,7 +25,9 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("next_dia"):
-		if dia_num<dialogue_content.size()-1:
+		if dialogue.content.visible_characters<dialogue.content.text.length():
+			dialogue.display_entire_dialogue()
+		elif  dia_num<dialogue_content.size()-1:
 			dia_num+=1
 			dialogue_fliter()
 		pass

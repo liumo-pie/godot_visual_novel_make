@@ -32,3 +32,9 @@ func _on_timer_timeout() -> void:
 		timer.stop()
 		finish_speaking.emit()
 	pass # Replace with function body.
+
+func display_entire_dialogue()->void:
+	content.visible_characters=content.text.length()
+	timer.stop()
+	finish_speaking.emit()
+	pass
