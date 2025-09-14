@@ -64,7 +64,7 @@ text = "hello.[wave]my[/wave]"
 
 [node name="Timer" type="Timer" parent="PanelContainer/content"]
 unique_name_in_owner = true
-wait_time = 0.1
+wait_time = 0.05
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1

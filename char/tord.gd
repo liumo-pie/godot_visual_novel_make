@@ -16,31 +16,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func set_anmi(char_name:String)->void:
-	anmi_char.sprite_frames=CHARACTER_FRAME[char_name]
-	anmi_char.play("idel_talk")
-	#match anmi_char.sprite_frames.resource_name:
-		#"phoneix":
-			#print("进来了")
-			#anmi_char.play("idel_talk")
-		#"trucy":
-			#anmi_char.play("idel_talk")
+func set_anmi(char_name:CharacterRole.Char_name)->void:
+	var sprite_frames=CharacterRole.CHAR_DETAIL[char_name]["res"]
+	if sprite_frames:
+		anmi_char.sprite_frames=sprite_frames
+		anmi_char.play("idel_talk")
+	else:
+		anmi_char.play("idel")
 	pass
 
 func  anmi_play()->void:
 	anmi_char.play("idel")
-	#match anmi_char.sprite_frames.resource_name:
-		#"phoneix":
-			#anmi_char.play("idel")
-		#"trucy":
-			#anmi_char.play("idel")
-		#_:
-			#print("搞错了")
 	pass
-#func _unhandled_input(event: InputEvent) -> void:
-	#if event.is_action("ui_accept"):
-		#var balloon=balloon_scene.instantiate()
-		#get_parent().add_child(balloon)
-		#balloon.start(dia_res,"start")
-		##DialogueManager.show_example_dialogue_balloon(preload("res://dialogue/main.dialogue"),"start")
-	#pass

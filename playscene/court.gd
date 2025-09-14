@@ -13,7 +13,8 @@ const dialogue_content:Array[String]=[
 	"Trucy:you are so great",
 	"Phoneix:doesnt matter,i have you",
 	"Trucy:you are so great",
-	"Phoneix:doesnt matter,i have you"
+	"Phoneix:doesnt matter,i have you",
+	"Apollo:you guys are cute"
 ]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,6 +26,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("next_dia"):
+		#print("可见字母"+str(dialogue.content.visible_characters)+"实际字母"+str(dialogue.content.text.length()))
 		if dialogue.content.visible_characters<dialogue.content.text.length():
 			dialogue.display_entire_dialogue()
 		elif  dia_num<dialogue_content.size()-1:
@@ -48,9 +50,10 @@ func parse_line(content:String)->Dictionary:
 func dialogue_fliter()->void:
 	var content:String=dialogue_content[dia_num]
 	var line_info=parse_line(content)
+	var charactername=CharacterRole.get_enum_from_str(line_info["Speaker_name"])
 	dialogue.set_context(line_info["Content"])
 	dialogue.set_name_val(line_info["Speaker_name"])
-	character.set_anmi(line_info["Speaker_name"])
+	character.set_anmi(charactername)
 		
 func _on_finish_speaking()->void:
 	character.anmi_play()
