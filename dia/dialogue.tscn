@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxrqpenwwvbg0"]
+[gd_scene load_steps=4 format=3 uid="uid://dxrqpenwwvbg0"]
 
 [ext_resource type="Theme" uid="uid://c6ejiicchxugd" path="res://themes/panel.tres" id="1_s7li5"]
 [ext_resource type="Script" uid="uid://bol1popdsy6dx" path="res://dia/dialogue.gd" id="2_k7ktf"]
+[ext_resource type="AudioStream" uid="uid://c27r5wkxnv5go" path="res://Audio/male.tres" id="3_k7ktf"]
 
 [node name="dialogue" type="Control"]
 layout_mode = 3
@@ -64,7 +65,7 @@ text = "hello.[wave]my[/wave]"
 
 [node name="Timer" type="Timer" parent="PanelContainer/content"]
 unique_name_in_owner = true
-wait_time = 0.05
+wait_time = 0.09
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
@@ -83,4 +84,9 @@ position = Vector2(1062, 588)
 scale = Vector2(0.8, 0.8)
 polygon = PackedVector2Array(0, 0, 40, 20, 0, 40)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_k7ktf")
+
 [connection signal="timeout" from="PanelContainer/content/Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
