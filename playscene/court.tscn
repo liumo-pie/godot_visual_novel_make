@@ -1,12 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://cc3c0ovd3blsv"]
+[gd_scene load_steps=6 format=3 uid="uid://cc3c0ovd3blsv"]
 
 [ext_resource type="Script" uid="uid://pere3x61cxc3" path="res://playscene/court.gd" id="1_cvvjx"]
+[ext_resource type="AudioStream" uid="uid://dtc16ppqkf3oi" path="res://Audio/same_part.tres" id="2_2t1km"]
 [ext_resource type="Texture2D" uid="uid://bn28tugescu0b" path="res://assets/courtroomoverview.png" id="2_7v16n"]
 [ext_resource type="PackedScene" uid="uid://dynppnqxut73b" path="res://char/tord.tscn" id="3_2t1km"]
 [ext_resource type="PackedScene" uid="uid://dxrqpenwwvbg0" path="res://dia/dialogue.tscn" id="4_3uymb"]
 
 [node name="playscene" type="Node2D"]
 script = ExtResource("1_cvvjx")
+
+[node name="next_line" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_2t1km")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -38,3 +43,10 @@ position = Vector2(0, -302)
 
 [node name="dialogue" parent="CanvasLayer2" instance=ExtResource("4_3uymb")]
 unique_name_in_owner = true
+
+[node name="next_line_time" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.05
+one_shot = true
+
+[connection signal="timeout" from="next_line_time" to="." method="_on_next_line_time_timeout"]

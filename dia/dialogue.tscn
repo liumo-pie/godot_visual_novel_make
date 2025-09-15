@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxrqpenwwvbg0"]
+[gd_scene load_steps=5 format=3 uid="uid://dxrqpenwwvbg0"]
 
 [ext_resource type="Theme" uid="uid://c6ejiicchxugd" path="res://themes/panel.tres" id="1_s7li5"]
 [ext_resource type="Script" uid="uid://bol1popdsy6dx" path="res://dia/dialogue.gd" id="2_k7ktf"]
-[ext_resource type="AudioStream" uid="uid://c27r5wkxnv5go" path="res://Audio/male.tres" id="3_k7ktf"]
+[ext_resource type="AudioStream" uid="uid://dtc16ppqkf3oi" path="res://Audio/same_part.tres" id="3_56qn8"]
+[ext_resource type="Script" uid="uid://bqhlxja7ohfkx" path="res://dia/audio_stream_player.gd" id="4_56qn8"]
 
 [node name="dialogue" type="Control"]
 layout_mode = 3
@@ -13,6 +14,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_s7li5")
 script = ExtResource("2_k7ktf")
+
+[node name="audio_time" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.09
 
 [node name="name" type="Control" parent="."]
 custom_minimum_size = Vector2(200, 50)
@@ -86,7 +91,15 @@ polygon = PackedVector2Array(0, 0, 40, 20, 0, 40)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("3_k7ktf")
+stream = ExtResource("3_56qn8")
+script = ExtResource("4_56qn8")
 
+[node name="stop_time" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.35
+one_shot = true
+
+[connection signal="timeout" from="audio_time" to="." method="_on_audio_time_timeout"]
 [connection signal="timeout" from="PanelContainer/content/Timer" to="." method="_on_timer_timeout"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="timeout" from="stop_time" to="." method="_on_stop_time_timeout"]
