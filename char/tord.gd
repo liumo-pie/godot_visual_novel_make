@@ -16,11 +16,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func set_anmi(char_name:CharacterRole.Char_name)->void:
+func set_anmi(char_name:CharacterRole.Char_name,play_anmi:String)->void:
 	var sprite_frames=CharacterRole.CHAR_DETAIL[char_name]["res"]
 	if sprite_frames:
 		anmi_char.sprite_frames=sprite_frames
-		anmi_char.play("idel_talk")
+		anmi_char.play(play_anmi)		
 	else:
 		anmi_char.play("idel")
 	pass

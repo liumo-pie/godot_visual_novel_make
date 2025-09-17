@@ -77,12 +77,17 @@ func _on_finish_speaking()->void:
 
 
 func _on_next_line_time_timeout() -> void:
-	#print("现在的语句是在"+str(dia_num))
 	var content=dialogue_content[dia_num]
-	#print("content 的内容是"+str(content))
-	var charactername=CharacterRole.get_enum_from_str(content["speaker"])
-	#因为有影响到角色的动画，所以在主场景进行判断
-	character.set_anmi(charactername)
+	var charactername
+	var express="idel_talk"
+	if content.has("AnmiCharacter"):
+		charactername=CharacterRole.get_enum_from_str(content["AnmiCharacter"])
+	else:
+		charactername=CharacterRole.get_enum_from_str(content["speaker"])
+	
+	if content.has("expression"):
+		express=content["expression"]	
+	character.set_anmi(charactername,express)
 	dialogue.set_all_info(charactername,content["text"])
 	pass # Replace with function body.
 

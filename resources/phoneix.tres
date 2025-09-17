@@ -1,14 +1,62 @@
-[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://i26k8oya0iv5"]
+[gd_resource type="SpriteFrames" load_steps=15 format=3 uid="uid://i26k8oya0iv5"]
 
 [ext_resource type="Texture2D" uid="uid://qbctcwirirwx" path="res://assets/phoniex/phoneix_idel/frame_0_delay-3.5s.png" id="1_5wkh1"]
+[ext_resource type="Texture2D" uid="uid://bdok0r8kcur4" path="res://assets/phoniex/confident-idle/frame_0.png" id="1_ij2ix"]
+[ext_resource type="Texture2D" uid="uid://hqu1dd0g0314" path="res://assets/phoniex/confident-idle/frame_1.png" id="2_brr16"]
 [ext_resource type="Texture2D" uid="uid://bl086irfp2ac8" path="res://assets/phoniex/phoneix_idel/frame_1_delay-0.1s.png" id="2_mx6qs"]
 [ext_resource type="Texture2D" uid="uid://gyb5w2oes81s" path="res://assets/phoniex/phoneix_idel/frame_2_delay-0.2s.png" id="3_3q38e"]
+[ext_resource type="Texture2D" uid="uid://c20hukis01r3y" path="res://assets/phoniex/confident-idle/frame_2.png" id="3_c3kxb"]
 [ext_resource type="Texture2D" uid="uid://bt3wih6qfkq3s" path="res://assets/phoniex/phoneix_talking/frame_0_delay-0.2s.png" id="4_jkyds"]
+[ext_resource type="Texture2D" uid="uid://b76x04ia3et82" path="res://assets/phoniex/confident-talking/frame_0.png" id="4_s621q"]
+[ext_resource type="Texture2D" uid="uid://6gr88amqolvt" path="res://assets/phoniex/confident-talking/frame_1.png" id="5_68g44"]
 [ext_resource type="Texture2D" uid="uid://0su5lyfw1eew" path="res://assets/phoniex/phoneix_talking/frame_1_delay-0.2s.png" id="5_a5l31"]
 [ext_resource type="Texture2D" uid="uid://bpcxoqboxaxrs" path="res://assets/phoniex/phoneix_talking/frame_2_delay-0.2s.png" id="6_ibtkd"]
+[ext_resource type="Texture2D" uid="uid://bgc0d7a8vpyh4" path="res://assets/phoniex/confident-talking/frame_2.png" id="6_wbo2o"]
+[ext_resource type="Texture2D" uid="uid://dvy4knsoxllfn" path="res://assets/phoniex/laugh-talking/frame_00.png" id="13_xald8"]
+[ext_resource type="Texture2D" uid="uid://ciotk0532shyt" path="res://assets/phoniex/laugh-talking/frame_01.png" id="14_2pmrq"]
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.2,
+"texture": ExtResource("1_ij2ix")
+}, {
+"duration": 1.1,
+"texture": ExtResource("2_brr16")
+}, {
+"duration": 1.4,
+"texture": ExtResource("3_c3kxb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_brr16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_ij2ix")
+}],
+"loop": true,
+"name": &"confident-idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.2,
+"texture": ExtResource("4_s621q")
+}, {
+"duration": 1.2,
+"texture": ExtResource("5_68g44")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wbo2o")
+}, {
+"duration": 1.1,
+"texture": ExtResource("5_68g44")
+}, {
+"duration": 1.2,
+"texture": ExtResource("4_s621q")
+}],
+"loop": true,
+"name": &"confident-talking",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.61,
 "texture": ExtResource("1_5wkh1")
@@ -50,5 +98,22 @@ animations = [{
 }],
 "loop": true,
 "name": &"idel_talk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_xald8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_2pmrq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_xald8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_2pmrq")
+}],
+"loop": true,
+"name": &"laugh-talking",
 "speed": 5.0
 }]
