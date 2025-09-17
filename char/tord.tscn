@@ -10,6 +10,5 @@ script = ExtResource("1_hyrgf")
 unique_name_in_owner = true
 scale = Vector2(0.8, 0.8)
 sprite_frames = ExtResource("1_e7hj6")
-animation = &"happy-idle"
+animation = &"idel"
 autoplay = "idel"
-frame_progress = 0.766043

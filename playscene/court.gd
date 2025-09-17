@@ -80,15 +80,16 @@ func _on_next_line_time_timeout() -> void:
 	var content=dialogue_content[dia_num]
 	var charactername
 	var express="idel_talk"
+	var content_speaker=CharacterRole.get_enum_from_str(content["speaker"])
 	if content.has("AnmiCharacter"):
 		charactername=CharacterRole.get_enum_from_str(content["AnmiCharacter"])
 	else:
-		charactername=CharacterRole.get_enum_from_str(content["speaker"])
+		charactername=content_speaker
 	
 	if content.has("expression"):
 		express=content["expression"]	
 	character.set_anmi(charactername,express)
-	dialogue.set_all_info(charactername,content["text"])
+	dialogue.set_all_info(content_speaker,content["text"])
 	pass # Replace with function body.
 
 func json_to_content()->void:

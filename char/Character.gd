@@ -11,12 +11,23 @@ const CHAR_DETAIL:Dictionary={
 	Char_name.PHOENIX:{
 		"name":"Phoenix",
 		"gender":"male",
-		"res":preload("res://resources/phoneix.tres")
+		"res":preload("res://resources/phoneix.tres"),
+		"Talk_idel":{
+			"idel_talk":"idel",
+			"confident-talking":"confident-idle",
+			"happy-talking":"happy-idle",
+		}
 	},
 	Char_name.TRUCY:{
 		"name":"Trucy",
 		"gender":"female",
-		"res":preload("res://resources/trucy.tres")
+		"res":preload("res://resources/trucy.tres"),
+		"Talk_idel":{
+			"idel_talk":"idel",
+			"confident-talking":"confident-idle",
+			"happy-talking":"happy-idle",
+			
+		}
 	},
 	Char_name.APOLLO:{
 		"name":"Apollo",
