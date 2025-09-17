@@ -1,0 +1,24 @@
+[	
+	{"speaker":"Trucy","text":"you are,... so poor dad"},
+	{"speaker":"Phoenix","text":"i am play the toy, you wanna come?"},
+	{"choice":[
+		{"text":"cute line","goto":"first choice"},
+		{"text":"bad line","goto":"second choice"}
+	]},
+	{"speaker":"Trucy","text":"you are,... aaaaaaaaaa poor dad"},
+	{"speaker":"Phoenix","text":"aha,you actully jumped! proud od you 你可真厉害"},
+	
+	
+	{"anchor":"first choice"},
+	{"speaker":"Trucy","text":"你睡醒啦，现在已经是25世纪了"},
+	{"speaker":"Phoenix","text":"我们再也不需要工作了"},
+	{"goto":"end"},
+	
+	{"anchor":"second choice"},
+	{"speaker":"Trucy","text":"听说你还在做什么独立游戏"},
+	{"speaker":"Phoenix","text":"不如赶紧进场打螺丝拉，你真笨"},
+	
+	{"anchor":"end"},
+	{"speaker":"Phoenix","text":"快去写ui"}
+	
+]

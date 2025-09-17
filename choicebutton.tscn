@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://03447o6qcpek"]
+
+[node name="Button" type="Button"]
+text = "press me"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

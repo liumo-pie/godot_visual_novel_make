@@ -2,14 +2,14 @@ class_name CharacterRole
 extends Node
 
 enum Char_name{
-	PHONEIX,
+	PHOENIX,
 	APOLLO,
 	TRUCY
 	
 }
 const CHAR_DETAIL:Dictionary={
-	Char_name.PHONEIX:{
-		"name":"Phoneix",
+	Char_name.PHOENIX:{
+		"name":"Phoenix",
 		"gender":"male",
 		"res":preload("res://resources/phoneix.tres")
 	},

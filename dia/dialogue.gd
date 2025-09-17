@@ -5,20 +5,25 @@ class_name  Dialogue extends Control
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 @onready var audio_time: Timer = %audio_time
 @onready var stop_time: Timer = %stop_time
+@onready var choices_vbox: VBoxContainer = %choices_vbox
 
+const choice_button=preload("res://choicebutton.tscn")
 const letter=["!","?","."]
 const Character_audio={
 	"male":preload("res://Audio/male.tres"),
 	"female":preload("res://Audio/famale.tres")
 }
 signal finish_speaking
+signal choice_press(val:String)
 func _ready() -> void:
+	choices_vbox.hide()
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
 
 func set_all_info(val:CharacterRole.Char_name,dialogue_info:String)->void:
 	name_val.text=CharacterRole.CHAR_DETAIL[val]["name"]
@@ -40,7 +45,6 @@ func _on_timer_timeout() -> void:
 		if content.visible_characters<content.text.length()-1:
 			var next_letter=content.text[content.visible_characters]
 			if letter_word in letter and next_letter==" ":
-				print("next letter"+next_letter)
 				stop_time.start()
 				audio_time.stop()
 	else:
@@ -72,3 +76,21 @@ func _on_audio_time_timeout() -> void:
 func _on_stop_time_timeout() -> void:
 	audio_time.start()
 	pass # Replace with function body.
+
+
+func show_choice(choices:Array)->void:
+	for childs in choices_vbox.get_children():
+		childs.queue_free()
+	for i in range(choices.size()) :
+		var new_button=choice_button.instantiate()
+		new_button.text=choices[i]["text"]
+		choices_vbox.add_child(new_button)
+		# bind起到了一个绑定参数的作用
+		new_button.pressed.connect(one_choice_pressed.bind(choices[i]["goto"]))
+	choices_vbox.show()
+	pass
+
+func one_choice_pressed(val:String)->void:
+	choice_press.emit(val)
+	choices_vbox.hide()
+	pass
