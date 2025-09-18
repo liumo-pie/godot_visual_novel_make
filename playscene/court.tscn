@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://pere3x61cxc3" path="res://playscene/court.gd" id="1_cvvjx"]
 [ext_resource type="AudioStream" uid="uid://dtc16ppqkf3oi" path="res://Audio/same_part.tres" id="2_2t1km"]
-[ext_resource type="Texture2D" uid="uid://bn28tugescu0b" path="res://assets/courtroomoverview.png" id="2_7v16n"]
 [ext_resource type="PackedScene" uid="uid://dynppnqxut73b" path="res://char/tord.tscn" id="3_2t1km"]
+[ext_resource type="Texture2D" uid="uid://vhvumdyst4eh" path="res://background/title_screen.tres" id="3_7v16n"]
 [ext_resource type="PackedScene" uid="uid://dxrqpenwwvbg0" path="res://dia/dialogue.tscn" id="4_3uymb"]
 
 [node name="playscene" type="Node2D"]
@@ -17,12 +17,14 @@ stream = ExtResource("2_2t1km")
 layer = -1
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_7v16n")
+texture = ExtResource("3_7v16n")
+expand_mode = 2
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 0

@@ -1,6 +1,6 @@
 [	
 	{"location":"office","music":""},
-	{"speaker":"Trucy","text":"you are,... so poor dad","expression":"happy-talking"},
+	{"speaker":"Trucy","text":"你到第二个文件啦","expression":"happy-talking"},
 	{"speaker":"Phoenix","text":"i am play the toy, you wanna come?"},
 	{"choice":[
 		{"text":"cute line","goto":"first choice"},
@@ -26,8 +26,9 @@
 	{"location":"courtroom","music":""},
 	{"speaker":"Trucy","text":"听说你还在做什么独立游戏"},
 	{"speaker":"Phoenix","text":"不如赶紧进场打螺丝拉，你真笨"},
+	{"goto":"end"},
 	
 	{"anchor":"end"},
-	{"speaker":"Phoenix","text":"快去写ui"},
-	{"next_scene":"res://story/dialogue_two.json"}
+	{"speaker":"Phoenix","text":"开心骂吗"},
+
 ]

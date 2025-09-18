@@ -3,10 +3,19 @@ extends Node2D
 @onready var dialogue: Dialogue = %dialogue as Dialogue
 @onready var next_line: AudioStreamPlayer = %next_line
 @onready var next_line_time: Timer = %next_line_time
-const  path:String= "res://story/dialogue_chat.json"
+@onready var texture_rect: TextureRect = %TextureRect
+
+
+const BackGround:Dictionary={
+	"court":preload("res://background/court.tres"),
+	"office":preload("res://background/office.tres"),
+	"courtroom":preload("res://background/courtroom.tres"),
+	"title_screen":preload("res://background/title_screen.tres")
+}
 #var phoneix=preload("res://resources/phoneix.tres")
 #var trucy=preload("res://resources/trucy.tres")
 var dia_num:int
+var  path:String= "res://story/dialogue_chat.json"
 #var char:String
 #后面用resource替换
 var dialogue_content:Array=[
@@ -46,7 +55,18 @@ func _process(delta: float) -> void:
 func dialogue_fliter()->void:
 	#需要在这里添加判断
 	var content=dialogue_content[dia_num]
+	if content.has("next_scene"):
+		path=content["next_scene"]
+		json_to_content()
+		dia_num=0
+		dialogue_fliter()
+		pass
 	#具有跳转逻辑
+	if content.has("location"):
+		texture_rect.texture=BackGround[content["location"]]
+		dia_num+=1
+		dialogue_fliter()
+		pass
 	if content.has("goto"):
 		#找到goto所在的位置
 		dia_num=find_goto(content["goto"])
