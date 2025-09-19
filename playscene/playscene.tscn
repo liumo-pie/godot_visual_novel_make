@@ -1,17 +1,17 @@
 [gd_scene load_steps=6 format=3 uid="uid://cc3c0ovd3blsv"]
 
-[ext_resource type="Script" uid="uid://pere3x61cxc3" path="res://playscene/court.gd" id="1_cvvjx"]
-[ext_resource type="AudioStream" uid="uid://dtc16ppqkf3oi" path="res://Audio/same_part.tres" id="2_2t1km"]
-[ext_resource type="PackedScene" uid="uid://dynppnqxut73b" path="res://char/tord.tscn" id="3_2t1km"]
-[ext_resource type="Texture2D" uid="uid://vhvumdyst4eh" path="res://background/title_screen.tres" id="3_7v16n"]
-[ext_resource type="PackedScene" uid="uid://dxrqpenwwvbg0" path="res://dia/dialogue.tscn" id="4_3uymb"]
+[ext_resource type="Script" uid="uid://pere3x61cxc3" path="res://playscene/playscene.gd" id="1_8idrd"]
+[ext_resource type="AudioStream" uid="uid://dtc16ppqkf3oi" path="res://Audio/same_part.tres" id="2_t1ppe"]
+[ext_resource type="Texture2D" uid="uid://vhvumdyst4eh" path="res://background/title_screen.tres" id="3_ihrex"]
+[ext_resource type="PackedScene" uid="uid://dynppnqxut73b" path="res://char/tord.tscn" id="4_6qr5g"]
+[ext_resource type="PackedScene" uid="uid://dxrqpenwwvbg0" path="res://dia/dialogue.tscn" id="5_xwk58"]
 
 [node name="playscene" type="Node2D"]
-script = ExtResource("1_cvvjx")
+script = ExtResource("1_8idrd")
 
 [node name="next_line" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("2_2t1km")
+stream = ExtResource("2_t1ppe")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -23,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_7v16n")
+texture = ExtResource("3_ihrex")
 expand_mode = 2
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
@@ -39,11 +39,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="character" parent="CanvasLayer2/Control" instance=ExtResource("3_2t1km")]
+[node name="character" parent="CanvasLayer2/Control" instance=ExtResource("4_6qr5g")]
 unique_name_in_owner = true
 position = Vector2(0, -302)
 
-[node name="dialogue" parent="CanvasLayer2" instance=ExtResource("4_3uymb")]
+[node name="dialogue" parent="CanvasLayer2" instance=ExtResource("5_xwk58")]
 unique_name_in_owner = true
 
 [node name="next_line_time" type="Timer" parent="."]

@@ -14,7 +14,9 @@ const BackGround:Dictionary={
 }
 #var phoneix=preload("res://resources/phoneix.tres")
 #var trucy=preload("res://resources/trucy.tres")
+var first_dianum:int
 var dia_num:int
+var add_content:bool=false
 var  path:String= "res://story/dialogue_chat.json"
 #var char:String
 #后面用resource替换
@@ -30,6 +32,8 @@ func _ready() -> void:
 	dialogue_fliter()
 	pass # Replace with function body.
 
+
+
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("next_dia") and !dialogue_content[dia_num].has("choice"):
 		if dialogue.content.visible_characters<dialogue.content.text.length():
@@ -37,7 +41,15 @@ func _input(event: InputEvent) -> void:
 		elif  dia_num<dialogue_content.size()-1:
 			dia_num+=1
 			dialogue_fliter()
-		pass
+			
+	if Input.is_action_pressed("deep_ask") and dia_num<dialogue_content.size()-1:
+		var content=dialogue_content[dia_num]
+		if add_content==true:
+			dia_num=find_goto(first_dianum,"add")
+			print("现在看看值"+str(dia_num))
+			add_content=false
+		
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -55,6 +67,7 @@ func _process(delta: float) -> void:
 func dialogue_fliter()->void:
 	#需要在这里添加判断
 	var content=dialogue_content[dia_num]
+	print("这个是过滤器对应的内容:"+str(content))
 	if content.has("next_scene"):
 		path=content["next_scene"]
 		json_to_content()
@@ -66,25 +79,30 @@ func dialogue_fliter()->void:
 		texture_rect.texture=BackGround[content["location"]]
 		dia_num+=1
 		dialogue_fliter()
-		pass
+		return
+	if content.has("goto_add"):
+		first_dianum=dia_num
+
 	if content.has("goto"):
 		#找到goto所在的位置
-		dia_num=find_goto(content["goto"])
+		dia_num=find_goto(0,content["goto"])
 		dialogue_fliter()
+		return
 	if content.has("anchor"):
 		dia_num+=1
 		dialogue_fliter()
+		return 
 	if content.has("choice"):
 		dialogue.show_choice(content["choice"])
-		pass
 	else:
 		next_line.play()
 		next_line_time.start()
 
-func find_goto(val)->int:
-	for i in range(0,dialogue_content.size()-1):
+func find_goto(pos:int,val:String)->int:
+	print("pos值是"+str(pos))
+	for i in range(pos,dialogue_content.size()-1):
 		if dialogue_content[i].has("anchor") and dialogue_content[i]["anchor"]==val:
-			print("找到的跳转方向是"+str(i))
+			#print("找到的跳转方向是"+str(i))
 			return i
 	printerr("不存在这个分支"+"goto的内容是"+str(val))
 	return 0
@@ -97,7 +115,9 @@ func _on_finish_speaking()->void:
 
 
 func _on_next_line_time_timeout() -> void:
+	print(dia_num)
 	var content=dialogue_content[dia_num]
+	print(content)
 	var charactername
 	var express="idel_talk"
 	var content_speaker=CharacterRole.get_enum_from_str(content["speaker"])
@@ -110,6 +130,10 @@ func _on_next_line_time_timeout() -> void:
 		express=content["expression"]	
 	character.set_anmi(charactername,express)
 	dialogue.set_all_info(content_speaker,content["text"])
+	if content.has("goto_add"):
+		print("add_content的值是"+str(add_content))
+		dia_num=find_goto(dia_num+2,"add")
+		add_content=true
 	pass # Replace with function body.
 
 func json_to_content()->void:
@@ -133,6 +157,6 @@ func string_to_arrayString(content:String)->Array:
 	return arr_content
 
 func on_choose_button(val:String)->void:
-	dia_num=find_goto(val)
+	dia_num=find_goto(0,val)
 	dialogue_fliter()
 	pass

@@ -1,15 +1,23 @@
 [	
 	{"location":"office","music":""},
 	{"speaker":"Trucy","text":"you are,... so poor dad","expression":"happy-talking"},
+	{"speaker":"Trucy","text":"you are,... so poor dad","expression":"happy-talking"},
 	{"speaker":"Phoenix","text":"i am play the toy, you wanna come?"},
+
+	{"speaker":"Trucy","text":"you are,... aaaaaaaaaa poor dad"},
+	{"speaker":"Apollo","text":"我是一个有goto的句子","goto_add":"add"},
+	
+	{"anchor":"add"},
+	{"speaker":"Trucy","text":"既然你展示的话"},
+	{"speaker":"Apollo","text":"我就发出来给你看吧"},
+	{"anchor":"add"},
+	
 	{"choice":[
 		{"text":"cute line","goto":"first choice"},
 		{"text":"bad line","goto":"second choice"}
 	]},
-	{"speaker":"Trucy","text":"you are,... aaaaaaaaaa poor dad"},
-	{"speaker":"Apollo","text":"you are,... aaaaaaaaaa poor dad"},
-	{"speaker":"Apollo","text":"我们在这里测试角色显示吧，你应该看到的是可爱的妹宝微笑","AnmiCharacter":"Trucy"},
-	{"speaker":"Phoenix","text":"aha,you actully jumped! proud od you 你可真厉害"},
+	
+
 	
 	
 	{"anchor":"first choice"},
