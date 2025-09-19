@@ -1,0 +1,31 @@
+[
+	{
+		"clue_name":"paper",
+		"position":[500,350],
+		"size":[100,200],
+		"clue_content":[
+			{"speaker":"Trucy","text":"线索3"},
+			{"speaker":"Apollo","text":"我就发出来给你看吧"}
+		]
+	},
+	
+	{
+		"clue_name":"paper",
+		"position":[30,50],
+		"size":[50,50],
+		"clue_content":[
+			{"speaker":"Trucy","text":"线索是好玩2"},
+			{"speaker":"Apollo","text":"我就发出来给你看吧"}
+		]
+	},
+	
+	{
+		"clue_name":"paper",
+		"position":[60,60],
+		"size":[20,30],
+		"clue_content":[
+			{"speaker":"Trucy","text":"线索是人头1"},
+			{"speaker":"Apollo","text":"我就发出来给你看吧"}
+		]
+	}
+]

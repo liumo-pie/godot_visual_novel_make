@@ -1,5 +1,5 @@
 class_name  Dialogue extends Control
-@onready var name_val: Label = %name_val
+@onready var name_val: Label =%name_val
 @onready var content: RichTextLabel = %content
 @onready var timer: Timer = %Timer
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
@@ -26,6 +26,8 @@ func _process(delta: float) -> void:
 
 
 func set_all_info(val:CharacterRole.Char_name,dialogue_info:String)->void:
+	print("啊啊啊啊啊啊啊啊啊"+CharacterRole.CHAR_DETAIL[val]["name"])
+	print("aaaa"+dialogue_info)
 	name_val.text=CharacterRole.CHAR_DETAIL[val]["name"]
 	content.text=dialogue_info
 	content.visible_characters=0

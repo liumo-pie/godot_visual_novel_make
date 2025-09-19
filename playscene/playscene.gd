@@ -115,9 +115,9 @@ func _on_finish_speaking()->void:
 
 
 func _on_next_line_time_timeout() -> void:
-	print(dia_num)
+	#print(dia_num)
 	var content=dialogue_content[dia_num]
-	print(content)
+	#print(content)
 	var charactername
 	var express="idel_talk"
 	var content_speaker=CharacterRole.get_enum_from_str(content["speaker"])

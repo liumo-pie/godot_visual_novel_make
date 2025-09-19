@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://idl4eo8uiar2"]
+
+[ext_resource type="Script" uid="uid://d0kw5i1v1nn5" path="res://clue_collision.gd" id="1_hxyqv"]
+
+[node name="clue_collision" type="CollisionShape2D"]
+script = ExtResource("1_hxyqv")
