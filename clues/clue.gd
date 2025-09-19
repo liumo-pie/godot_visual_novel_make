@@ -24,7 +24,7 @@ func _ready() -> void:
 	set_clue_scene()
 	pass
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("next_dia") and click_flag==true:
 		if empty_dia.content.visible_characters<empty_dia.content.text.length():
 			empty_dia.display_entire_dialogue()
